@@ -4,7 +4,6 @@
  */
 package superdetodosa;
 
-import Producto.BusquedaPorNombreVista;
 import java.util.TreeSet;
 
 /**
@@ -110,7 +109,7 @@ public static TreeSet<Producto> listaProductos=new TreeSet
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.rePaint();
-        BusquedaPorNombreVista bpn=new BusquedaPorNombreVista();
+        BusquedaPorNombreView bpn=new BusquedaPorNombreView();
         bpn.setVisible(true);
         escritorio.add(bpn);
         escritorio.moveeToFront(bpn);

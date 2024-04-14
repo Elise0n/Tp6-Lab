@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author elise
  */
-public class BusquedaPorNombreVista extends javax.swing.JInternalFrame {
+public class BusquedaPorNombreView extends javax.swing.JInternalFrame {
 private DefaultTableModel modelo=new DefaultTableModel ();{
     public boolean inCellEditable(int f, int c){
         return false
@@ -19,7 +19,7 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
     /**
      * Creates new form BusquedaPorNombreVista
      */
-    public BusquedaPorNombreVista() {
+    public BusquedaPorNombreView() {
         initComponents();
         armarCabecera();
     }
