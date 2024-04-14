@@ -38,7 +38,14 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
         jtNombreBuscar = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jtProductos = new javax.swing.JTable();
+        jInternalFrame1 = new javax.swing.JInternalFrame();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jtNombreBuscar1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtProductos1 = new javax.swing.JTable();
 
+        jLabel1.setFont(new java.awt.Font("Arial Black", 3, 18)); // NOI18N
         jLabel1.setText("Listado por Nombre");
 
         jLabel2.setText("Escriba Los Primero Caracteres");
@@ -57,10 +64,87 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
                 {null, null, null, null}
             },
             new String [] {
+                "Codigo", "Descripcion", "Precio", "Stock"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(jtProductos);
+        if (jtProductos.getColumnModel().getColumnCount() > 0) {
+            jtProductos.getColumnModel().getColumn(0).setResizable(false);
+            jtProductos.getColumnModel().getColumn(1).setResizable(false);
+            jtProductos.getColumnModel().getColumn(2).setResizable(false);
+            jtProductos.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        jInternalFrame1.setClosable(true);
+
+        jLabel3.setText("Listado por Nombre");
+
+        jLabel4.setText("Escriba Los Primero Caracteres");
+
+        jtNombreBuscar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtNombreBuscar1KeyReleased(evt);
+            }
+        });
+
+        jtProductos1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jtProductos);
+        jScrollPane2.setViewportView(jtProductos1);
+        if (jtProductos1.getColumnModel().getColumnCount() > 0) {
+            jtProductos1.getColumnModel().getColumn(0).setResizable(false);
+            jtProductos1.getColumnModel().getColumn(1).setResizable(false);
+            jtProductos1.getColumnModel().getColumn(2).setResizable(false);
+            jtProductos1.getColumnModel().getColumn(3).setResizable(false);
+        }
+
+        javax.swing.GroupLayout jInternalFrame1Layout = new javax.swing.GroupLayout(jInternalFrame1.getContentPane());
+        jInternalFrame1.getContentPane().setLayout(jInternalFrame1Layout);
+        jInternalFrame1Layout.setHorizontalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jtNombreBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addGap(140, 140, 140)
+                        .addComponent(jLabel3))
+                    .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jInternalFrame1Layout.setVerticalGroup(
+            jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrame1Layout.createSequentialGroup()
+                .addComponent(jLabel3)
+                .addGap(24, 24, 24)
+                .addGroup(jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jtNombreBuscar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -69,17 +153,23 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
+                        .addGap(25, 25, 25)
                         .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
+                        .addGap(26, 26, 26)
                         .addComponent(jtNombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 391, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(97, 97, 97))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +181,12 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
                     .addComponent(jtNombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jInternalFrame1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
@@ -99,23 +194,34 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
 
     private void jtNombreBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreBuscarKeyReleased
         // TODO add your handling code here:
-        for(Producto prod:jfMenuP.listaProductos);
-        if(prod.getDescripcion() .startsWith(jtNombre.getText())){
+        borrarFilas();
+        for(Producto prod:Menu.listaProductos){
+        if(prod.getDescripcion().startsWith(jtNombreBuscar.getText())){
             modelo.addRow(new Object[]{
-                prod.getCodigo();
-                prod.getDescripcion();
-                prod.getPrecio();
-                prod.getStock();
+                prod.getCodigo(),
+                prod.getDescripcion(),
+                prod.getPrecio(),
+                prod.getStock()
         });
     }//GEN-LAST:event_jtNombreBuscarKeyReleased
 
+    private void jtNombreBuscar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreBuscar1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtNombreBuscar1KeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jtNombreBuscar;
+    private javax.swing.JTextField jtNombreBuscar1;
     private javax.swing.JTable jtProductos;
+    private javax.swing.JTable jtProductos1;
     // End of variables declaration//GEN-END:variables
     
     private void armaCabecera();{
@@ -125,5 +231,15 @@ private DefaultTableModel modelo=new DefaultTableModel ();{
     modelo.addColumn("Precio");
     modelo.addColumn("Stock");
     jtProductos.setModel(modelo);
+    }
+    
+    private void borrrarFilas(){
+        
+        int f=jtProductos.getRowcount()-1;
+        for(;f>=0;f--){
+
+        model.removeRow(f);
+    }
+
 }
 }
